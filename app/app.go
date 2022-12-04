@@ -1,11 +1,8 @@
 package app
 
 import (
-	"fmt"
-	"log"
 	"net/http"
 	"os"
-	"time"
 
 	"github.com/gin-gonic/gin"
 	"github.com/ilies-a/go-googleauth-example/app/middlewares"
@@ -23,15 +20,15 @@ func StartGinServer() {
 
 	routers.InitAPIRouter(r)
 
-	r.GET("/test", func(c *gin.Context) {
-		processId := os.Getpid()
+	// r.GET("/test", func(c *gin.Context) {
+	// 	processId := os.Getpid()
 
-		log.Println("/test 1")
-		time.Sleep(time.Second * 5)
-		log.Println("/test 2")
+	// 	log.Println("/test 1")
+	// 	time.Sleep(time.Second * 5)
+	// 	log.Println("/test 2")
 
-		c.JSON(200, `processId: `+fmt.Sprint(processId))
-	})
+	// 	c.JSON(200, `processId: `+fmt.Sprint(processId))
+	// })
 
 	r.Run("localhost:" + os.Getenv("PORT"))
 }
