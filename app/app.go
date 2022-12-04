@@ -20,15 +20,5 @@ func StartGinServer() {
 
 	routers.InitAPIRouter(r)
 
-	// r.GET("/test", func(c *gin.Context) {
-	// 	processId := os.Getpid()
-
-	// 	log.Println("/test 1")
-	// 	time.Sleep(time.Second * 5)
-	// 	log.Println("/test 2")
-
-	// 	c.JSON(200, `processId: `+fmt.Sprint(processId))
-	// })
-
 	r.Run("localhost:" + os.Getenv("PORT"))
 }
